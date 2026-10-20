@@ -1,0 +1,142 @@
+/* comun.css — colores, tipografía y piezas compartidas por todas las páginas */
+
+:root {
+  --noche: #0b0721;
+  --noche-2: #150d3a;
+  --realeza: #3a2aa8;
+  --brillo: #6fe8ff;
+  --corazon: #ff3b7f;
+  --oro: #ffd34d;
+  --hueso: #f3ecff;
+  --hueso-suave: #b9aee6;
+
+  --fuente-titulo: "Pixelify Sans", "Courier New", monospace;
+  --fuente-texto: "Atkinson Hyperlegible", "Trebuchet MS", Verdana, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--noche);
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--noche);
+  color: var(--hueso);
+  font-family: var(--fuente-texto);
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+
+:focus-visible {
+  outline: 3px solid var(--oro);
+  outline-offset: 3px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Caja de diálogo: doble borde, como un cuadro de texto de RPG */
+.caja {
+  background: rgba(11, 7, 33, 0.9);
+  border: 4px solid var(--hueso);
+  box-shadow: 0 0 0 4px var(--noche), 0 0 0 8px var(--brillo), 0 24px 60px rgba(0, 0, 0, 0.6);
+  padding: 28px;
+}
+
+.boton {
+  font-family: var(--fuente-titulo);
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: var(--noche);
+  background: var(--oro);
+  border: 4px solid var(--hueso);
+  box-shadow: 0 6px 0 #b8901c;
+  padding: 10px 24px;
+  cursor: pointer;
+  transition: transform 0.08s, box-shadow 0.08s;
+}
+
+.boton:hover {
+  background: #ffe07a;
+}
+
+.boton:active {
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 #b8901c;
+}
+
+.boton-suave {
+  background: transparent;
+  color: var(--hueso);
+  box-shadow: none;
+  font-size: 1.125rem;
+}
+
+.boton-suave:hover {
+  background: rgba(243, 236, 255, 0.12);
+}
+
+.boton-suave:active {
+  transform: none;
+}
+
+/* ---------- Avatares ---------- */
+
+.avatar {
+  display: inline-flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: var(--alto-avatar, 96px);
+}
+
+.avatar-relleno,
+.avatar-relleno svg {
+  display: block;
+  height: 100%;
+  width: auto;
+}
+
+/* Hoja de sprites: una tira horizontal que avanza un cuadro por paso */
+.sprite {
+  display: block;
+  width: var(--ancho-cuadro);
+  height: var(--alto-cuadro);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: calc(var(--ancho-cuadro) * var(--cuadros)) var(--alto-cuadro);
+  image-rendering: pixelated;
+  animation: sprite-paso 0.8s steps(var(--cuadros)) infinite;
+  animation-play-state: var(--animacion, paused);
+}
+
+@keyframes sprite-paso {
+  to {
+    background-position-x: calc(var(--ancho-cuadro) * var(--cuadros) * -1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sprite {
+    animation: none;
+  }
+}

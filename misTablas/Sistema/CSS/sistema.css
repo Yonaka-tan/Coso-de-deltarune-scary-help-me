@@ -1,0 +1,46 @@
+/* sistema.css — página principal del sistema (por ahora, solo bienvenida) */
+
+body {
+  background: linear-gradient(180deg, var(--noche) 0%, var(--noche-2) 100%);
+  background-attachment: fixed;
+}
+
+.sistema {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  place-items: center;
+  padding: 24px 16px;
+}
+
+.sistema .caja {
+  width: min(560px, 100%);
+}
+
+.jugador {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 16px;
+}
+
+.jugador h1 {
+  margin: 0;
+  font-family: var(--fuente-titulo);
+  font-size: clamp(1.75rem, 6vw, 2.5rem);
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+
+.progreso {
+  margin: 4px 0 0;
+  color: var(--hueso-suave);
+}
+
+.acciones-sistema {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: space-between;
+  margin-top: 24px;
+}

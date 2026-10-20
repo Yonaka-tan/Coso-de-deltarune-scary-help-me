@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reino Código — Tu aventura</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Pixelify+Sans:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="CSS/comun.css">
+  <link rel="stylesheet" href="CSS/sistema.css">
+</head>
+<body>
+  <main class="sistema">
+    <section class="caja" aria-labelledby="saludo">
+      <div class="jugador">
+        <div id="jugador-avatar"></div>
+        <div>
+          <h1 id="saludo">¡Hola!</h1>
+          <p id="progreso" class="progreso"></p>
+        </div>
+      </div>
+
+      <p>Las lecciones llegan en la próxima etapa. Tu perfil ya quedó guardado en este navegador.</p>
+
+      <div class="acciones-sistema">
+        <!-- Botón temporal: sirve para probar el panel "Continuar" de la página de ingreso -->
+        <button type="button" class="boton boton-suave" id="marcar-leccion">Marcar una lección como terminada (prueba)</button>
+        <button type="button" class="boton" id="salir">Salir</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="JS/almacen.js"></script>
+  <script src="JS/avatares.js"></script>
+  <script src="JS/sistema.js"></script>
+</body>
+</html>

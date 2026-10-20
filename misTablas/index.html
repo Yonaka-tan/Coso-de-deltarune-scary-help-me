@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reino Código</title>
+  <meta name="description" content="Aprende a programar jugando: elige tu avatar y entra al Reino Código.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Pixelify+Sans:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="Sistema/CSS/comun.css">
+  <link rel="stylesheet" href="Sistema/CSS/login.css">
+</head>
+<body>
+
+  <!-- Video de fondo: guarda tu archivo como Sistema/IMAGEN/fondo.mp4 -->
+  <video class="fondo-video" id="fondo-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+    <source src="Sistema/IMAGEN/fondo.mp4" type="video/mp4">
+  </video>
+  <div class="fondo-velo" aria-hidden="true"></div>
+
+  <!-- Panel lateral para continuar un perfil con progreso -->
+  <aside class="cajon" id="cajon">
+    <div class="cajon-panel" id="cajon-panel" aria-labelledby="cajon-titulo">
+      <h2 id="cajon-titulo">Continuar aventura</h2>
+      <p class="ayuda">Elige tu perfil para seguir donde lo dejaste.</p>
+      <div id="cajon-contenido"></div>
+    </div>
+    <button type="button" class="cajon-pestana" id="cajon-pestana" aria-expanded="false" aria-controls="cajon-panel">
+      Continuar
+    </button>
+  </aside>
+
+  <main class="escena" id="escena">
+    <section class="caja" aria-labelledby="titulo">
+      <header class="cabecera">
+        <svg class="logo" viewBox="0 0 64 64" role="img" aria-label="Logo de Reino Código">
+          <path d="M32 3 L61 32 L32 61 L3 32 Z" fill="#150d3a" stroke="#6fe8ff" stroke-width="4" stroke-linejoin="miter"/>
+          <path d="M25 22 L15 32 L25 42 M39 22 L49 32 L39 42" fill="none" stroke="#f3ecff" stroke-width="5" stroke-linecap="square"/>
+          <path d="M35 20 L29 44" fill="none" stroke="#ff3b7f" stroke-width="4" stroke-linecap="square"/>
+        </svg>
+        <div>
+          <h1 id="titulo">Reino Código</h1>
+          <p>Aprende a programar, nivel por nivel.</p>
+        </div>
+      </header>
+
+      <p class="dialogo">
+        <span class="sr-only">¡Hola, viajero! Antes de entrar, dime cómo te llamas y elige tu avatar.</span>
+        <span class="escribiendo" id="dialogo-texto" aria-hidden="true"></span>
+      </p>
+
+      <form id="form-ingreso" novalidate>
+        <div class="campo">
+          <label for="nombre">Tu nombre</label>
+          <input type="text" id="nombre" name="nombre" maxlength="16" autocomplete="off"
+                 aria-describedby="error-nombre" placeholder="Por ejemplo: Luna">
+          <p class="mensaje-error" id="error-nombre" role="alert"></p>
+        </div>
+
+        <fieldset class="campo" aria-describedby="error-avatar">
+          <legend>Elige tu avatar</legend>
+          <div class="rejilla-avatares" id="rejilla-avatares"></div>
+          <p class="mensaje-error" id="error-avatar" role="alert"></p>
+        </fieldset>
+
+        <p class="mensaje-error" id="error-general" role="alert"></p>
+
+        <div class="acciones">
+          <button type="submit" class="boton">Entrar al reino</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="Sistema/JS/almacen.js"></script>
+  <script src="Sistema/JS/avatares.js"></script>
+  <script src="Sistema/JS/login.js"></script>
+</body>
+</html>
